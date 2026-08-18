@@ -1,0 +1,125 @@
+#include "imx6ull-14x14-evk-emmc.dts"
+
+/ {
+       sii902x_reset: sii902x-reset {
+                status = "okay";
+        };
+};
+
+&i2c2 {
+	sii902x: sii902x@39{
+		status = "okay";
+	};
+
+        edt-ft5x06@38 {
+                status = "disabled";
+        };
+
+        goodix_ts@5d {
+                status = "disabled";
+        };
+
+	ov5640: ov5640@3c {
+		compatible = "ovti,ov5640";
+		reg = <0x3c>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pinctrl_csi1
+			    &csi_pwn_rst>;
+		clocks = <&clks IMX6UL_CLK_CSI>;
+		clock-names = "csi_mclk";
+		pwn-gpios = <&gpio1 4 1>;
+		rst-gpios = <&gpio1 2 0>;
+		csi_id = <0>;
+		mclk = <24000000>;
+		mclk_source = <0>;
+		status = "okay";
+		port {
+			ov5640_ep: endpoint {
+				remote-endpoint = <&csi_ep>;
+			};
+		};
+	};
+};
+
+&lcdif {
+        pinctrl-0 = <&pinctrl_hdmi_dat
+		    &pinctrl_hdmi_ctrl
+		    &ts_reset_hdmi_pin>;
+};
+
+&iomuxc {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_hog_1_hdmi>;
+	imx6ul-evk {
+                pinctrl_hdmi_dat: hdmidatgrp {
+			/* do not change the pimux vlaue on mini board*/
+                        fsl,pins = <
+                                MX6UL_PAD_LCD_DATA00__LCDIF_DATA00  0x49
+                                MX6UL_PAD_LCD_DATA01__LCDIF_DATA01  0x49
+                                MX6UL_PAD_LCD_DATA02__LCDIF_DATA02  0x49
+                                MX6UL_PAD_LCD_DATA03__LCDIF_DATA03  0x49
+                                MX6UL_PAD_LCD_DATA04__LCDIF_DATA04  0x49
+                                MX6UL_PAD_LCD_DATA05__LCDIF_DATA05  0x49
+                                MX6UL_PAD_LCD_DATA06__LCDIF_DATA06  0x49
+                                MX6UL_PAD_LCD_DATA07__LCDIF_DATA07  0x51
+                                MX6UL_PAD_LCD_DATA08__LCDIF_DATA08  0x49
+                                MX6UL_PAD_LCD_DATA09__LCDIF_DATA09  0x49
+                                MX6UL_PAD_LCD_DATA10__LCDIF_DATA10  0x49
+                                MX6UL_PAD_LCD_DATA11__LCDIF_DATA11  0x49
+                                MX6UL_PAD_LCD_DATA12__LCDIF_DATA12  0x49
+                                MX6UL_PAD_LCD_DATA13__LCDIF_DATA13  0x49
+                                MX6UL_PAD_LCD_DATA14__LCDIF_DATA14  0x49
+                                MX6UL_PAD_LCD_DATA15__LCDIF_DATA15  0x51
+                                MX6UL_PAD_LCD_DATA16__LCDIF_DATA16  0x49
+                                MX6UL_PAD_LCD_DATA17__LCDIF_DATA17  0x49
+                                MX6UL_PAD_LCD_DATA18__LCDIF_DATA18  0x49
+                                MX6UL_PAD_LCD_DATA19__LCDIF_DATA19  0x49
+                                MX6UL_PAD_LCD_DATA20__LCDIF_DATA20  0x49
+                                MX6UL_PAD_LCD_DATA21__LCDIF_DATA21  0x49
+                                MX6UL_PAD_LCD_DATA22__LCDIF_DATA22  0x49
+                                MX6UL_PAD_LCD_DATA23__LCDIF_DATA23  0x51
+                        >;
+                };
+		pinctrl_hog_1_hdmi: hoggrp-1-hdmi {
+			fsl,pins = <
+				MX6UL_PAD_UART1_RTS_B__GPIO1_IO19	0x17059 /* SD1 CD */
+				MX6UL_PAD_GPIO1_IO05__USDHC1_VSELECT	0x17059 /* SD1 VSELECT */
+				MX6UL_PAD_GPIO1_IO00__GPIO1_IO00	0x13058 /* 风扇 GPIO0 */
+			>;
+		};
+
+		pinctrl_uart3: uart3grp {
+			fsl,pins = <
+				MX6UL_PAD_UART3_TX_DATA__UART3_DCE_TX   0x1b0b1
+				MX6UL_PAD_UART3_RX_DATA__UART3_DCE_RX   0x1b0b1
+			>;
+		};
+
+                pinctrl_hdmi_ctrl: hdmictrlgrp {
+                        fsl,pins = <
+                                MX6UL_PAD_LCD_CLK__LCDIF_CLK        0x49
+                                MX6UL_PAD_LCD_ENABLE__LCDIF_ENABLE  0x49
+                                MX6UL_PAD_LCD_HSYNC__LCDIF_HSYNC    0x49
+                                MX6UL_PAD_LCD_VSYNC__LCDIF_VSYNC    0x49
+                        >;
+                };
+
+	};
+};
+
+&iomuxc_snvs {
+	     imx6ul-evk {
+                     ts_reset_hdmi_pin: ts_reset_hdmi_mux {
+			fsl,pins = <
+                                MX6ULL_PAD_SNVS_TAMPER9__GPIO5_IO09 0x49
+                        >;
+                };
+	};
+
+};
+
+&uart3 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pinctrl_uart3>;
+	status = "okay";
+};
