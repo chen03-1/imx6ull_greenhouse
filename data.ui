@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DataPage</class>
+ <widget class="QWidget" name="data">
+  <property name="geometry">
+   <rect><x>0</x><y>0</y><width>1024</width><height>550</height></rect>
+  </property>
+  <property name="windowTitle">
+   <string>数据监测</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #e8e8e8;</string>
+  </property>
+  <layout class="QHBoxLayout" name="mainHLayout">
+   <property name="spacing"><number>10</number></property>
+   <property name="leftMargin"><number>8</number></property>
+   <property name="rightMargin"><number>8</number></property>
+   <property name="topMargin"><number>6</number></property>
+   <property name="bottomMargin"><number>6</number></property>
+   <item>
+    <layout class="QVBoxLayout" name="leftVLayout">
+     <property name="spacing"><number>6</number></property>
+     <item>
+      <widget class="QGroupBox" name="ds18b20Group">
+       <property name="minimumSize"><size><width>270</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>310</width><height>16777215</height></size></property>
+       <property name="title"><string>DS18B20 温度</string></property>
+       <property name="alignment"><set>Qt::AlignLeft</set></property>
+       <property name="styleSheet"><string notr="true">
+        QGroupBox { font: bold 12pt "Microsoft YaHei"; color: #333; border: 1px solid #aaa; border-radius: 2px; margin-top: 14px; padding: 25px 6px 4px 6px; background: #f0f0f0; }
+        QGroupBox::title { subcontrol-origin: margin; subcontrol-position: top left; padding: 2px 10px; color: #333; }
+       </string></property>
+       <layout class="QVBoxLayout" name="ds18b20Layout">
+        <property name="spacing"><number>0</number></property>
+        <property name="leftMargin"><number>4</number></property>
+        <property name="rightMargin"><number>4</number></property>
+        <property name="topMargin"><number>0</number></property>
+        <property name="bottomMargin"><number>2</number></property>
+        <item>
+         <widget class="QLabel" name="ds18b20ValueLabel">
+          <property name="text"><string>--</string></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+          <property name="styleSheet"><string notr="true">font: 26pt "Consolas"; color: #1a5ca8; background: transparent;</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="ds18b20UnitLabel">
+          <property name="text"><string>°C</string></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+          <property name="styleSheet"><string notr="true">font: 10pt "Microsoft YaHei"; color: #777; background: transparent;</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="ds18b20StatusLabel">
+          <property name="text"><string>等待连接</string></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+          <property name="styleSheet"><string notr="true">font: 8pt "Microsoft YaHei"; color: #999; background: transparent;</string></property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="bh1750Group">
+       <property name="minimumSize"><size><width>270</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>310</width><height>16777215</height></size></property>
+       <property name="title"><string>BH1750 光照</string></property>
+       <property name="alignment"><set>Qt::AlignLeft</set></property>
+       <property name="styleSheet"><string notr="true">
+        QGroupBox { font: bold 12pt "Microsoft YaHei"; color: #333; border: 1px solid #aaa; border-radius: 2px; margin-top: 14px; padding: 25px 6px 4px 6px; background: #f0f0f0; }
+        QGroupBox::title { subcontrol-origin: margin; subcontrol-position: top left; padding: 2px 10px; color: #333; }
+       </string></property>
+       <layout class="QVBoxLayout" name="bh1750Layout">
+        <property name="spacing"><number>0</number></property>
+        <property name="leftMargin"><number>4</number></property>
+        <property name="rightMargin"><number>4</number></property>
+        <property name="topMargin"><number>0</number></property>
+        <property name="bottomMargin"><number>2</number></property>
+        <item>
+         <widget class="QLabel" name="bh1750ValueLabel">
+          <property name="text"><string>--</string></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+          <property name="styleSheet"><string notr="true">font: 26pt "Consolas"; color: #b85e00; background: transparent;</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="bh1750UnitLabel">
+          <property name="text"><string>Lux</string></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+          <property name="styleSheet"><string notr="true">font: 10pt "Microsoft YaHei"; color: #777; background: transparent;</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="bh1750StatusLabel">
+          <property name="text"><string>等待连接</string></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+          <property name="styleSheet"><string notr="true">font: 8pt "Microsoft YaHei"; color: #999; background: transparent;</string></property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="mhz19bGroup">
+       <property name="minimumSize"><size><width>270</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>310</width><height>16777215</height></size></property>
+       <property name="title"><string>MH-Z19B CO2</string></property>
+       <property name="alignment"><set>Qt::AlignLeft</set></property>
+       <property name="styleSheet"><string notr="true">
+        QGroupBox { font: bold 12pt "Microsoft YaHei"; color: #333; border: 1px solid #aaa; border-radius: 2px; margin-top: 14px; padding: 25px 6px 4px 6px; background: #f0f0f0; }
+        QGroupBox::title { subcontrol-origin: margin; subcontrol-position: top left; padding: 2px 10px; color: #333; }
+       </string></property>
+       <layout class="QVBoxLayout" name="mhz19bLayout">
+        <property name="spacing"><number>0</number></property>
+        <property name="leftMargin"><number>4</number></property>
+        <property name="rightMargin"><number>4</number></property>
+        <property name="topMargin"><number>0</number></property>
+        <property name="bottomMargin"><number>2</number></property>
+        <item>
+         <widget class="QLabel" name="mhz19bValueLabel">
+          <property name="text"><string>--</string></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+          <property name="styleSheet"><string notr="true">font: 26pt "Consolas"; color: #1b8a3d; background: transparent;</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="mhz19bUnitLabel">
+          <property name="text"><string>ppm</string></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+          <property name="styleSheet"><string notr="true">font: 10pt "Microsoft YaHei"; color: #777; background: transparent;</string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="mhz19bStatusLabel">
+          <property name="text"><string>等待连接</string></property>
+          <property name="alignment"><set>Qt::AlignCenter</set></property>
+          <property name="styleSheet"><string notr="true">font: 8pt "Microsoft YaHei"; color: #999; background: transparent;</string></property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="fanServoHLayout">
+       <property name="spacing"><number>6</number></property>
+       <item>
+        <widget class="QGroupBox" name="fanGroup">
+         <property name="title"><string>风扇</string></property>
+         <property name="alignment"><set>Qt::AlignLeft</set></property>
+         <property name="styleSheet"><string notr="true">
+          QGroupBox { font: bold 11pt "Microsoft YaHei"; color: #333; border: 1px solid #aaa; border-radius: 2px; margin-top: 12px; padding: 20px 4px 2px 4px; background: #f0f0f0; }
+          QGroupBox::title { subcontrol-origin: margin; subcontrol-position: top left; padding: 1px 8px; color: #333; }
+         </string></property>
+         <layout class="QVBoxLayout" name="fanLayout">
+          <property name="spacing"><number>0</number></property>
+          <property name="leftMargin"><number>2</number></property>
+          <property name="rightMargin"><number>2</number></property>
+          <property name="topMargin"><number>0</number></property>
+          <property name="bottomMargin"><number>2</number></property>
+          <item>
+           <widget class="QLabel" name="fanValueLabel">
+            <property name="text"><string>--</string></property>
+            <property name="alignment"><set>Qt::AlignCenter</set></property>
+            <property name="styleSheet"><string notr="true">font: 16pt "Consolas"; color: #1a5ca8; background: transparent;</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="fanStatusLabel">
+            <property name="text"><string>--</string></property>
+            <property name="alignment"><set>Qt::AlignCenter</set></property>
+            <property name="styleSheet"><string notr="true">font: 8pt "Microsoft YaHei"; color: #999; background: transparent;</string></property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="servoGroup">
+         <property name="title"><string>舵机</string></property>
+         <property name="alignment"><set>Qt::AlignLeft</set></property>
+         <property name="styleSheet"><string notr="true">
+          QGroupBox { font: bold 11pt "Microsoft YaHei"; color: #333; border: 1px solid #aaa; border-radius: 2px; margin-top: 12px; padding: 20px 4px 2px 4px; background: #f0f0f0; }
+          QGroupBox::title { subcontrol-origin: margin; subcontrol-position: top left; padding: 1px 8px; color: #333; }
+         </string></property>
+         <layout class="QVBoxLayout" name="servoLayout">
+          <property name="spacing"><number>0</number></property>
+          <property name="leftMargin"><number>2</number></property>
+          <property name="rightMargin"><number>2</number></property>
+          <property name="topMargin"><number>0</number></property>
+          <property name="bottomMargin"><number>2</number></property>
+          <item>
+           <widget class="QLabel" name="servoValueLabel">
+            <property name="text"><string>--</string></property>
+            <property name="alignment"><set>Qt::AlignCenter</set></property>
+            <property name="styleSheet"><string notr="true">font: 16pt "Consolas"; color: #b85e00; background: transparent;</string></property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="servoStatusLabel">
+            <property name="text"><string>--</string></property>
+            <property name="alignment"><set>Qt::AlignCenter</set></property>
+            <property name="styleSheet"><string notr="true">font: 8pt "Microsoft YaHei"; color: #999; background: transparent;</string></property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="leftSpacer">
+       <property name="orientation"><enum>Qt::Vertical</enum></property>
+       <property name="sizeHint"><size><width>20</width><height>0</height></size></property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="rightVLayout">
+     <property name="spacing"><number>6</number></property>
+     <item>
+      <widget class="QWidget" name="chartContainer">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>1</horstretch><verstretch>1</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize"><size><width>400</width><height>300</height></size></property>
+       <property name="styleSheet"><string notr="true">background: #f5f5f5; border: 1px solid #aaa; border-radius: 2px;</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="sensorSelector" native="true">
+       <property name="minimumSize"><size><width>0</width><height>42</height></size></property>
+       <property name="maximumSize"><size><width>16777215</width><height>46</height></size></property>
+       <property name="styleSheet"><string notr="true">background: #e0e0e0; border: 1px solid #aaa; border-radius: 2px;</string></property>
+       <layout class="QHBoxLayout" name="selectorLayout">
+        <property name="spacing"><number>8</number></property>
+        <property name="leftMargin"><number>10</number></property>
+        <property name="rightMargin"><number>10</number></property>
+        <property name="topMargin"><number>4</number></property>
+        <property name="bottomMargin"><number>4</number></property>
+        <item>
+         <widget class="QPushButton" name="btnDS18B20">
+          <property name="text"><string>DS18B20 温度</string></property>
+          <property name="minimumSize"><size><width>130</width><height>32</height></size></property>
+          <property name="checkable"><bool>true</bool></property>
+          <property name="checked"><bool>true</bool></property>
+          <property name="styleSheet"><string notr="true">
+           QPushButton { font: 11pt "Microsoft YaHei"; color: #333; background: #eee; border: 1px solid #aaa; border-radius: 2px; padding: 4px 8px; }
+           QPushButton:checked { color: #fff; background: #2d7dd2; border: 1px solid #1a5ca8; }
+           QPushButton:hover:!checked { background: #ddd; }
+          </string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnBH1750">
+          <property name="text"><string>BH1750 光照</string></property>
+          <property name="minimumSize"><size><width>130</width><height>32</height></size></property>
+          <property name="checkable"><bool>true</bool></property>
+          <property name="styleSheet"><string notr="true">
+           QPushButton { font: 11pt "Microsoft YaHei"; color: #333; background: #eee; border: 1px solid #aaa; border-radius: 2px; padding: 4px 8px; }
+           QPushButton:checked { color: #fff; background: #2d7dd2; border: 1px solid #1a5ca8; }
+           QPushButton:hover:!checked { background: #ddd; }
+          </string></property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnMHZ19B">
+          <property name="text"><string>MH-Z19B CO2</string></property>
+          <property name="minimumSize"><size><width>130</width><height>32</height></size></property>
+          <property name="checkable"><bool>true</bool></property>
+          <property name="styleSheet"><string notr="true">
+           QPushButton { font: 11pt "Microsoft YaHei"; color: #333; background: #eee; border: 1px solid #aaa; border-radius: 2px; padding: 4px 8px; }
+           QPushButton:checked { color: #fff; background: #2d7dd2; border: 1px solid #1a5ca8; }
+           QPushButton:hover:!checked { background: #ddd; }
+          </string></property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="selectorSpacer">
+          <property name="orientation"><enum>Qt::Horizontal</enum></property>
+          <property name="sizeHint"><size><width>40</width><height>20</height></size></property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
