@@ -10,6 +10,7 @@
 | MH-Z19B | UART | UART3 | /dev/ttymxc2 |
 | 风扇 | GPIO | GPIO0 | sysfs |
 | OV5640 | CSI | CAMERA座 | V4L2 |
-软件架构图
+
+软件架构：
 UI主线程 ←→ SensorWorker线程（500ms轮询传感器）
          ←→ CameraCapture线程（V4L2 15fps抓帧）
